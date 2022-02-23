@@ -1,10 +1,46 @@
-Feature: Evolving a grid over multiple generations
+Feature: Evolving a grid with some cells in it
   In order to create a functioning rules engine
   As a programmer of Conway's Game of Life
-  I can evolve a grid over multiple generations
+  I can evolve a multiple cell grid
 
-  Scenario: Cells come alive,
-    Given the following generation setup:
+  Scenario: Sparse grid with nobody staying alive
+    Given the following setup:
+      """
+      .....
+      .*.*.
+      .....
+      .*.*.
+      .....
+      """
+    When I evolve the board
+    Then I should see the following board:
+    """
+    .....
+    .....
+    .....
+    .....
+    .....
+    """
+  Scenario: Over-crowded grid
+    Given the following setup:
+      """
+      .....
+      .***.
+      .***.
+      .***.
+      .....
+      """
+    When I evolve the board
+    Then I should see the following board:
+      """
+      ..*..
+      .*.*.
+      *...*
+      .*.*.
+      ..*..
+      """
+  Scenario: Multiple dead cells coming to life
+    Given the following setup:
       """
       .....
       .....
@@ -12,31 +48,12 @@ Feature: Evolving a grid over multiple generations
       .....
       .....
       """
-    When I evolve the board:
-    Then I should see the following board
-      """
-      .....
-      ..*..
-      ..*..
-      ..*..
-      .....
-      """
-    Scenario: and then die off
-    Given the following generation setup:
-      """
-      .....
-      ..*..
-      ..*..
-      ..*..
-      .....
-      """
-    When I evolve the board:
-
-    Then I should see the following board
-      """
-      .....
-      .....
-      .***.
-      .....
-      .....
-      """
+    When I evolve the board
+    Then I should see the following board:
+    """
+    .....
+    ..*..
+    ..*..
+    ..*..
+    .....
+    """
