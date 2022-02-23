@@ -4,7 +4,7 @@ Feature: Cell configurations that are static
   I can see static structures surviving in my world
 
   Scenario: Block
-    Given the following setup
+    Given the following setup:
     """
     .....
     .**..
@@ -13,7 +13,7 @@ Feature: Cell configurations that are static
     .....
     """
     When I evolve the board
-    Then I should see the following board
+    Then I should see the following board:
     """
     .....
     .**..
@@ -22,7 +22,7 @@ Feature: Cell configurations that are static
     .....
     """
   Scenario: Beehive
-    Given the following setup
+    Given the following setup:
     """
     ......
     ..**..
@@ -31,7 +31,7 @@ Feature: Cell configurations that are static
     ......
     """
     When I evolve the board
-    Then I should see the following board
+    Then I should see the following board:
     """
     ......
     ..**..
@@ -40,7 +40,7 @@ Feature: Cell configurations that are static
     ......
     """
   Scenario: Loaf
-    Given the following setup
+    Given the following setup:
     """
     ......
     ..**..
@@ -50,7 +50,7 @@ Feature: Cell configurations that are static
     ......
     """
     When I evolve the board
-    Then I should see the following board
+    Then I should see the following board:
     """
     ......
     ..**..
@@ -61,7 +61,7 @@ Feature: Cell configurations that are static
     """
 
   Scenario: Boat
-    Given the following setup
+    Given the following setup:
     """
     .....
     .**..
@@ -70,8 +70,8 @@ Feature: Cell configurations that are static
     .....
     """
     When I evolve the board
-    Then I should see the following board
-      """
+    Then I should see the following board:
+    """
     .....
     .**..
     .*.*.
